@@ -3,7 +3,12 @@ name: Frontend Dev CI/CD Pipeline
 on:
   push:
     branches:
-      - master
+      - web-map-site
+      - main
+  pull_request:
+    branches:
+      - web-map-site
+      - main
 
 env:
   project-directory: ./
@@ -23,10 +28,10 @@ jobs:
       - name: npm clean install
         run: npm ci
         working-directory: ${{ env.project-directory }}
-      # - name: run ESLint
-      #   run: npm run lint
-      #   working-directory: ${{ env.project-directory }}
-      # define the endpoints for DEV in github secrets
+      - name: run ESLint
+        run: npm run lint
+        working-directory: ${{ env.project-directory }}
+      #  define the endpoints for DEV in github secrets
       - name: build frontend project
         run: ${{ secrets.DEV_APP_ENDPOINTS }} CI= npm run build
         working-directory: ${{ env.project-directory }}
