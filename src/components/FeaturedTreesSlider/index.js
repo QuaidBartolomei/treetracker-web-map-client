@@ -22,8 +22,12 @@ function FeaturedTreesSlider(props) {
         <ArrowForwardIosIcon />
       </Button>
       <Grid ref={sliderRef} className={classes.SliderImgContainer}>
-        {trees.map((tree, index) => (
-          <Link href={`/trees/${tree.id}`} key={index} className={classes.Card}>
+        {trees.map((tree) => (
+          <Link
+            href={`/trees/${tree.id}`}
+            key={tree.id}
+            className={classes.Card}
+          >
             <img className={classes.Img} src={tree.photo_url} />
             <div className={classes.Title}>
               <p style={{ padding: '0 8px' }}>

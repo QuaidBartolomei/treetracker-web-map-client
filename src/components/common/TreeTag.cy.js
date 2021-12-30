@@ -10,7 +10,7 @@ describe('TreeTag', () => {
     function Test() {
       return (
         <TreeTag
-          title={'Age'}
+          title="Age"
           TreeTagValue={TreeTagValue}
           icon={<AccessTime />}
         />

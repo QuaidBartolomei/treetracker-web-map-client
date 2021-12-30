@@ -226,7 +226,7 @@ function MapComponent() {
         sx={{ width: '100%', height: '100%' }}
         id="map-canvas"
         ref={mapRef}
-      ></Box>
+      />
       <Snackbar
         open={message.open}
         autoHideDuration={10000}

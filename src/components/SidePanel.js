@@ -1,3 +1,5 @@
+/* eslint-disable no-nested-ternary */
+/* eslint-disable react/destructuring-assignment */
 import AccessTime from '@mui/icons-material/AccessTime';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -338,7 +340,7 @@ function SidePanel(props) {
           exit: 500,
         }}
       >
-        <Paper square={true} className={classes.sidePaper} elevation={8}>
+        <Paper square className={classes.sidePaper} elevation={8}>
           <div style={{ position: 'relative' }}>
             <Paper
               title="hide"
@@ -404,25 +406,23 @@ function SidePanel(props) {
                 <Grid item>
                   <Paper elevation={5} className={classes.avatarPaper}>
                     {treeDetail ? (
-                      <>
-                        {treeDetail.user_image_url ? (
-                          <Avatar
-                            id="planter-img"
-                            className={`${classes.avatar}`}
-                            src={
-                              treeDetail.user_image_url.startsWith('http')
-                                ? treeDetail.user_image_url
-                                : `http://${treeDetail.user_image_url}`
-                            }
-                          />
-                        ) : (
-                          <Avatar
-                            id="planter-img"
-                            className={`${classes.avatar} ${classes.avatarLogo}`}
-                            src="/images/greenstand_logo.svg"
-                          />
-                        )}
-                      </>
+                      treeDetail.user_image_url ? (
+                        <Avatar
+                          id="planter-img"
+                          className={`${classes.avatar}`}
+                          src={
+                            treeDetail.user_image_url.startsWith('http')
+                              ? treeDetail.user_image_url
+                              : `http://${treeDetail.user_image_url}`
+                          }
+                        />
+                      ) : (
+                        <Avatar
+                          id="planter-img"
+                          className={`${classes.avatar} ${classes.avatarLogo}`}
+                          src="/images/greenstand_logo.svg"
+                        />
+                      )
                     ) : (
                       <Avatar
                         id="planter-img"
@@ -627,8 +627,8 @@ function SidePanel(props) {
                           <IconButton
                             onClick={handleBasePictureClick}
                             size="small"
-                            disableRipple={true}
-                            disableFocusRipple={true}
+                            disableRipple
+                            disableFocusRipple
                           >
                             <Search />
                             <ImageShower
@@ -653,8 +653,8 @@ function SidePanel(props) {
                           <IconButton
                             onClick={handleLeafPictureClick}
                             size="small"
-                            disableRipple={true}
-                            disableFocusRipple={true}
+                            disableRipple
+                            disableFocusRipple
                           >
                             <Search />
                             <ImageShower
@@ -721,7 +721,7 @@ function List(props) {
           <props.icon className={classes.detailIcon} />
         </Tooltip>
       </Grid>
-      <Grid item className={'list-container'}>
+      <Grid item className="list-container">
         {props.children}
       </Grid>
     </Grid>

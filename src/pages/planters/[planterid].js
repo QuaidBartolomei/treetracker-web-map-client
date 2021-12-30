@@ -90,7 +90,7 @@ export default function Planter({ planter }) {
         {planter.first_name} {planter.last_name}
       </Typography>
       <Box sx={{ display: 'flex', gap: 2 }}>
-        <VerifiedBadge verified={true} badgeName="Verified Planter" />
+        <VerifiedBadge verified badgeName="Verified Planter" />
         <VerifiedBadge verified={false} badgeName="Seeking Orgs" />
       </Box>
       <Stack gap={2.5} sx={{ my: 2 }}>
@@ -159,8 +159,8 @@ export default function Planter({ planter }) {
           <div key={org.id}>
             <InformationCard1
               entityName={org.name}
-              entityType={'Planting Organization'}
-              buttonText={'Meet the Organization'}
+              entityType="Planting Organization"
+              buttonText="Meet the Organization"
               cardImageSrc={org?.logo_url}
               link={`/organizations/${org.id}`}
             />

@@ -185,11 +185,9 @@ function Share(props) {
         onClose={handleMessageClose}
         message={message}
         action={
-          <React.Fragment>
-            <IconButton color="primary" onClick={handleMessageClose}>
-              <Close />
-            </IconButton>
-          </React.Fragment>
+          <IconButton color="primary" onClick={handleMessageClose}>
+            <Close />
+          </IconButton>
         }
       />
     </>

@@ -12,29 +12,31 @@ const useStyles = makeStyles()(() => ({
   },
 }));
 
-const JssComponent = ({ children }) => {
+function JssComponent({ children }) {
   const { classes } = useStyles();
   return (
     <Box id="JssComponent" className={classes.box}>
       {children}
     </Box>
   );
-};
+}
 
-const SxComponent = ({ children }) => (
-  <Box id="SxComponent" sx={{ color: textColor }}>
-    {children}
-  </Box>
-);
+function SxComponent({ children }) {
+  return (
+    <Box id="SxComponent" sx={{ color: textColor }}>
+      {children}
+    </Box>
+  );
+}
 
-const SxJssComponent = ({ children }) => {
+function SxJssComponent({ children }) {
   const { classes } = useStyles();
   return (
     <Box id="SxJssComponent" className={classes.box} sx={{ color: textColor }}>
       {children}
     </Box>
   );
-};
+}
 
 describe('BackButton', () => {
   it('renders with makestyles', () => {

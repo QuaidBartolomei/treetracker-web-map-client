@@ -36,7 +36,7 @@ describe('CustomImageWrapper', () => {
           likes={20}
         />,
       );
-      cy.get('[alt="tree image"]')
+      cy.get('[alt="tree"]')
         .should('be.visible')
         .and(($img) => {
           expect($img[0].naturalWidth).to.be.greaterThan(0);

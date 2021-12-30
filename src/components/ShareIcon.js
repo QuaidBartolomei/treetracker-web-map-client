@@ -16,14 +16,15 @@ const useStyles = makeStyles()((theme) => ({
 
 function ShareIcon(props) {
   const { classes } = useStyles();
+  const { name, clickHandler, iconSrc } = props;
 
   return (
     <Grid item className={classes.gridContainer}>
       <Grid container direction="column" alignItems="center">
         <Grid item>
-          <IconButton name={props.name} onClick={props.clickHandler}>
+          <IconButton name={name} onClick={clickHandler}>
             {(() => {
-              switch (props.iconSrc) {
+              switch (iconSrc) {
                 case 'Embed':
                   return (
                     <Avatar>
@@ -43,13 +44,13 @@ function ShareIcon(props) {
                     </Avatar>
                   );
                 default:
-                  return <Avatar src={props.iconSrc} />;
+                  return <Avatar src={iconSrc} />;
               }
             })()}
           </IconButton>
         </Grid>
         <Grid item>
-          <Typography variant="button">{props.name}</Typography>
+          <Typography variant="button">{name}</Typography>
         </Grid>
       </Grid>
     </Grid>

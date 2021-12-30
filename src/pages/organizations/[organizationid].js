@@ -73,8 +73,8 @@ export default function Organization({ organization }) {
     const tree = organization?.featuredTrees?.trees[0];
     if (tree) {
       const { lat, lon } = tree;
-      const continent = await utils.getContinent(lat, lon);
-      setContinent(continent.name);
+      const newContinent = await utils.getContinent(lat, lon);
+      setContinent(newContinent.name);
     }
   }
 
@@ -111,7 +111,7 @@ export default function Organization({ organization }) {
     <PageWrapper>
       <Typography variant="subtitle1">{name}</Typography>
       <Box className={classes.badgeWrapper}>
-        <VerifiedBadge verified={true} badgeName="Verified Planter" />
+        <VerifiedBadge verified badgeName="Verified Planter" />
         <VerifiedBadge verified={false} badgeName="Seeking Planters" />
       </Box>
       <Box className={classes.info}>

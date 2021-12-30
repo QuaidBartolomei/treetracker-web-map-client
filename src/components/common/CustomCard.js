@@ -47,7 +47,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const CustomCard = (props) => {
+function CustomCard(props) {
   const { classes } = useStyles(props);
   const theme = useTheme();
   const { icon, title, text, handleClick, disabled } = props;
@@ -92,6 +92,6 @@ const CustomCard = (props) => {
       </CardContent>
     </Card>
   );
-};
+}
 
 export default CustomCard;

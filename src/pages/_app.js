@@ -16,6 +16,7 @@ import appTheme from '../theme';
 
 let muiCache;
 
+// eslint-disable-next-line no-return-assign
 export const createMuiCache = () =>
   (muiCache = createCache({
     key: 'mui',

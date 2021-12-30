@@ -5,7 +5,7 @@ import VerifiedBadge from './VerifiedBadge';
 
 describe('Verified Badge', () => {
   it('enabled', () => {
-    mount(<VerifiedBadge verified={true} badgeName="Tree Verified" />);
+    mount(<VerifiedBadge verified badgeName="Tree Verified" />);
   });
   it('not enabled', () => {
     mount(<VerifiedBadge verified={false} badgeName="Tree Verified" />);

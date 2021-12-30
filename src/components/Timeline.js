@@ -62,6 +62,7 @@ const useStylesTooltip = makeStyles()(() => ({
 
 function ValueLabelComponent(props) {
   const { children, open, value } = props;
+  const { index } = props;
   const classes = useStylesTooltip();
 
   return (
@@ -69,7 +70,7 @@ function ValueLabelComponent(props) {
       open={open}
       classes={{ popper: classes.popper }}
       enterTouchDelay={0}
-      placement={props.index === 0 ? 'top' : 'bottom'}
+      placement={index === 0 ? 'top' : 'bottom'}
       title={value}
     >
       {children}
@@ -146,6 +147,7 @@ function Timeline(props) {
   const { classes } = useStyles();
   const [slide, setSlide] = React.useState(false);
   const [value, setValue] = React.useState([0, dayRange]);
+  const { onClose, onDateChange, date } = props;
 
   function handleClick() {
     setSlide(!slide);
@@ -158,7 +160,7 @@ function Timeline(props) {
       document.getElementById('txtTimeline').style.display = '';
 
       setValue([0, dayRange]);
-      props.onClose && props.onClose();
+      onClose && onClose();
     }
   }
 
@@ -170,55 +172,53 @@ function Timeline(props) {
 
   const handleChangeCommitted = (unusedEvent, newValue) => {
     log.debug('trigger change commit:', newValue);
-    props.onDateChange && props.onDateChange(newValue.map((e) => valuetext(e)));
+    onDateChange && onDateChange(newValue.map((e) => valuetext(e)));
   };
 
   React.useEffect(() => {
-    if (props.date) {
+    if (date) {
       setSlide(true);
-      setValue(textvalue(...props.date));
+      setValue(textvalue(...date));
     }
-  }, [props.date]);
+  }, [date]);
 
   return (
-    <>
-      <div className={classes.root}>
-        <Grid container alignItems="center" className={classes.box1}>
-          <Grid item className={classes.box2}>
-            <Tooltip title="Timeline">
-              <IconButton id="iconButton" onClick={handleClick}>
-                {slide ? (
-                  <CancelTwoToneIcon fontSize="large" color="secondary" />
-                ) : (
-                  <TimelapseTwoToneIcon fontSize="large" color="secondary" />
-                )}
-              </IconButton>
-            </Tooltip>
-          </Grid>
-
-          <Grid item className={classes.box3}>
-            <span id="txtTimeline" className="text">
-              Timeline
-            </span>
-            {slide && (
-              <TimelineSlider
-                min={0}
-                max={dayRange}
-                value={value}
-                onChange={handleChange}
-                onChangeCommitted={handleChangeCommitted}
-                aria-labelledby="range-slider"
-                getAriaValueText={valuetext}
-                valueLabelFormat={valuetext}
-                marks={marks}
-                valueLabelDisplay="on"
-                ValueLabelComponent={ValueLabelComponent}
-              />
-            )}
-          </Grid>
+    <div className={classes.root}>
+      <Grid container alignItems="center" className={classes.box1}>
+        <Grid item className={classes.box2}>
+          <Tooltip title="Timeline">
+            <IconButton id="iconButton" onClick={handleClick}>
+              {slide ? (
+                <CancelTwoToneIcon fontSize="large" color="secondary" />
+              ) : (
+                <TimelapseTwoToneIcon fontSize="large" color="secondary" />
+              )}
+            </IconButton>
+          </Tooltip>
         </Grid>
-      </div>
-    </>
+
+        <Grid item className={classes.box3}>
+          <span id="txtTimeline" className="text">
+            Timeline
+          </span>
+          {slide && (
+            <TimelineSlider
+              min={0}
+              max={dayRange}
+              value={value}
+              onChange={handleChange}
+              onChangeCommitted={handleChangeCommitted}
+              aria-labelledby="range-slider"
+              getAriaValueText={valuetext}
+              valueLabelFormat={valuetext}
+              marks={marks}
+              valueLabelDisplay="on"
+              ValueLabelComponent={ValueLabelComponent}
+            />
+          )}
+        </Grid>
+      </Grid>
+    </div>
   );
 }
 

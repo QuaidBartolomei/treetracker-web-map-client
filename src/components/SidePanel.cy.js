@@ -63,7 +63,7 @@ describe('SidePanel', () => {
       return (
         <div style={{ background: 'gray', height: '1000px' }}>
           <SidePanel
-            state={'show'}
+            state="show"
             tree={trees.map((t) => ({ id: t.id }))[treeIndex]}
             onNext={handleNext}
             hasNext={treeIndex < trees.length - 1}
@@ -175,7 +175,7 @@ describe('SidePanel', () => {
     });
     mount(
       <SidePanel
-        state={'show'}
+        state="show"
         tree={{
           id: 1,
         }}
@@ -217,7 +217,7 @@ describe('SidePanel', () => {
         cy.viewport(1366, 768);
         mount(
           <SidePanel
-            state={'show'}
+            state="show"
             tree={{
               id: i,
             }}
@@ -252,7 +252,7 @@ describe('SidePanel', () => {
         });
         mount(
           <SidePanel
-            state={'show'}
+            state="show"
             tree={{
               id: i,
             }}
@@ -279,7 +279,7 @@ describe('SidePanel', () => {
       function Test() {
         return (
           <div style={{ background: 'gray', height: '1000px' }}>
-            <SidePanel state={'show'} tree={{ id: tree.id }} />
+            <SidePanel state="show" tree={{ id: tree.id }} />
           </div>
         );
       }
@@ -312,7 +312,7 @@ describe('SidePanel', () => {
       });
       mount(
         <div style={{ background: 'gray', height: '1000px' }}>
-          <SidePanel state={'show'} tree={{ id: tree.id }} />
+          <SidePanel state="show" tree={{ id: tree.id }} />
         </div>,
       );
     });

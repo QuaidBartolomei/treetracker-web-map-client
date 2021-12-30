@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import NextLink from 'next/link';
 import React from 'react';
 
-// eslint-disable-next-line react/display-name
 const NextComposed = React.forwardRef((props, ref) => {
   const { as, href, ...other } = props;
   return (

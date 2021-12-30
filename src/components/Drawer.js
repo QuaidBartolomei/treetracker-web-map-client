@@ -88,12 +88,12 @@ function Drawer(props) {
   return (
     <>
       <SwipeableDrawer
-        anchor={'bottom'}
+        anchor="bottom"
         open={open}
         classes={{ paper: classes.paper }}
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
-        disableSwipeToOpen={true}
+        disableSwipeToOpen
         BackdropProps={{ open: false }}
         style={{ position: 'relative' }}
       >

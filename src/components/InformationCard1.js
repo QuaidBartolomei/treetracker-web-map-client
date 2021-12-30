@@ -79,7 +79,7 @@ function InformationCard1({
         </Box>
       </div>
       <Link href={link}>
-        <Button className={classes.button} fullWidth={true}>
+        <Button className={classes.button} fullWidth>
           <Typography variant="h5">{buttonText}</Typography>
         </Button>
       </Link>

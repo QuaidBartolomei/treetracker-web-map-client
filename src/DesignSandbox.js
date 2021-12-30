@@ -40,26 +40,28 @@ const colorData = [
   'textLight',
 ];
 
-const Row = ({ color, isBackground }) => (
-  <StyledTableRow>
-    <TableCell component="th" scope="row">
-      <Typography variant="h6">{color}</Typography>
-    </TableCell>
-    <TableCell align="right">
-      <Box
-        sx={{
-          height: 50,
-          width: 50,
-          borderRadius: '50%',
-          bgcolor: isBackground || `${color}.main`,
-          background: (theme) => theme.palette.background[color],
-        }}
-      ></Box>
-    </TableCell>
-  </StyledTableRow>
-);
+function Row({ color, isBackground }) {
+  return (
+    <StyledTableRow>
+      <TableCell component="th" scope="row">
+        <Typography variant="h6">{color}</Typography>
+      </TableCell>
+      <TableCell align="right">
+        <Box
+          sx={{
+            height: 50,
+            width: 50,
+            borderRadius: '50%',
+            bgcolor: isBackground || `${color}.main`,
+            background: (theme) => theme.palette.background[color],
+          }}
+        />
+      </TableCell>
+    </StyledTableRow>
+  );
+}
 
-const DesignSandbox = () => {
+function DesignSandbox() {
   const theme = useTheme();
   const bgData = Object.entries(theme.palette.background).map(
     (entry) => entry[0],
@@ -76,7 +78,7 @@ const DesignSandbox = () => {
                   <StyledTableCell>
                     <Typography variant="h6">Color Swatch</Typography>
                   </StyledTableCell>
-                  <StyledTableCell></StyledTableCell>
+                  <StyledTableCell />
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -95,7 +97,7 @@ const DesignSandbox = () => {
                   <StyledTableCell>
                     <Typography variant="h6">Background Swatch</Typography>
                   </StyledTableCell>
-                  <StyledTableCell></StyledTableCell>
+                  <StyledTableCell />
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -162,6 +164,6 @@ const DesignSandbox = () => {
       </Box>
     </div>
   );
-};
+}
 
 export default DesignSandbox;

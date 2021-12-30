@@ -27,7 +27,7 @@ const useStyles = makeStyles()((theme) => ({
   },
 }));
 
-const TreeSpeciesCard = (props) => {
+function TreeSpeciesCard(props) {
   const { classes } = useStyles();
 
   const { name, count } = props;
@@ -47,6 +47,6 @@ const TreeSpeciesCard = (props) => {
       </Box>
     </Card>
   );
-};
+}
 
 export default TreeSpeciesCard;

@@ -24,7 +24,7 @@ function ImageShower(props) {
   }
   return (
     <>
-      <Dialog open={true} onClose={props.onClose}>
+      <Dialog open onClose={props.onClose}>
         <img alt={props.title} src={props.src} />
       </Dialog>
       <IconButton className={classes.closeIcon} onClick={props.onClose}>
