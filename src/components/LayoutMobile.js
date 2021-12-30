@@ -3,9 +3,8 @@ import { makeStyles } from 'models/makeStyles';
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-import Navbar from './Navbar';
-import log from 'loglevel';
 import Drawer from './Drawer';
+import Navbar from './Navbar';
 
 const App = dynamic(() => import('./App'), { ssr: false });
 
